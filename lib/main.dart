@@ -1,5 +1,6 @@
 import 'package:animacoes/animated_container.dart';
 import 'package:animacoes/page_route_animation.dart';
+import 'package:animacoes/tween_animation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -64,7 +65,14 @@ class _MyHomePageState extends State<MyHomePage> {
                           );
                         }));
               },
-            )
+            ),
+            ListTile(
+              title: Text("Tween Animation"),
+              trailing: Icon(Icons.arrow_forward_ios),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (ctx) => ExemploTweenAnimation()));
+              },
+            ),
           ],
         ),
       ),

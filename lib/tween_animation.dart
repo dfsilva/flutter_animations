@@ -6,21 +6,18 @@ class ExemploTweenAnimation extends StatefulWidget {
   _ExemploTweenAnimationState createState() => _ExemploTweenAnimationState();
 }
 
-class _ExemploTweenAnimationState extends State<ExemploTweenAnimation>
-    with SingleTickerProviderStateMixin {
-
-  Duration _duration = Duration(seconds: 3);
+class _ExemploTweenAnimationState extends State<ExemploTweenAnimation> with SingleTickerProviderStateMixin {
   AnimationController _controller;
   Animation<double> _animation;
 
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(
-        vsync: this,
-        duration: _duration
-    );
-    _animation = Tween(begin: 0.0, end: 100000).animate(_controller);
+    _controller = AnimationController(vsync: this, duration: Duration(seconds: 10))
+      ..addListener(() {
+        setState(() {});
+      });
+    _animation = Tween(begin: 0.0, end: 100000.0).animate(_controller);
   }
 
   @override
@@ -37,11 +34,21 @@ class _ExemploTweenAnimationState extends State<ExemploTweenAnimation>
       ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("R\$${_animation.value.toStringAsFixed(2)}"),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text("R\$${_animation.value.toStringAsFixed(2)}", style: TextStyle(fontSize: 40)),
+            ),
             RaisedButton(
               child: Text("Animar"),
-              onPressed: () => {},
+              onPressed: () {
+                if (_controller.status == AnimationStatus.completed) {
+                  _controller.reverse();
+                } else {
+                  _controller.forward();
+                }
+              },
             )
           ],
         ),
