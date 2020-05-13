@@ -56,8 +56,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     PageRouteBuilder<SlideTransition>(
                         pageBuilder: (_, __, ___) => PageRouteAnimation(),
                         transitionsBuilder: (context, anim, secondAnim, child) {
-                          final tween = Tween<Offset>(begin: Offset(0.0, 1.0), end: Offset.zero);
-                          final curve = CurveTween(curve: Curves.ease);
+                          var tween = Tween<Offset>(begin: Offset(0.0, 1.0), end: Offset.zero);
+                          var curve = CurveTween(curve: Curves.ease);
                           return SlideTransition(
                             position: anim.drive(curve).drive(tween),
                             child: child,
