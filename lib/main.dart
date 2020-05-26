@@ -1,6 +1,10 @@
 import 'package:animacoes/animated_container.dart';
+import 'package:animacoes/animations_builder.dart';
+import 'package:animacoes/custom_tween.dart';
+import 'package:animacoes/fade_animation.dart';
 import 'package:animacoes/page_route_animation.dart';
 import 'package:animacoes/tween_animation.dart';
+import 'package:animacoes/tween_sequence.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -71,6 +75,34 @@ class _MyHomePageState extends State<MyHomePage> {
               trailing: Icon(Icons.arrow_forward_ios),
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (ctx) => ExemploTweenAnimation()));
+              },
+            ),
+            ListTile(
+              title: Text("Animation Builder"),
+              trailing: Icon(Icons.arrow_forward_ios),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (ctx) => AnimationBuilderWidget()));
+              },
+            ),
+            ListTile(
+              title: Text("Sequence Tween"),
+              trailing: Icon(Icons.arrow_forward_ios),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (ctx) => TweenSequenceWidget()));
+              },
+            ),
+            ListTile(
+              title: Text("Custom Tween"),
+              trailing: Icon(Icons.arrow_forward_ios),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (ctx) => CustomTweenWidget()));
+              },
+            ),
+            ListTile(
+              title: Text("Fade Transition"),
+              trailing: Icon(Icons.arrow_forward_ios),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (ctx) => ExemploFadeTransition()));
               },
             ),
           ],
